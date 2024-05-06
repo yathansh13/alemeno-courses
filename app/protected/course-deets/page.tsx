@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useSearchParams, useParams } from "next/navigation";
-import { supabase } from "../utils/supabaseClient";
+import { supabase } from "../../utils/supabaseClient";
 
 type Course = {
   id: string;
@@ -11,7 +11,7 @@ type Course = {
   description: string;
 };
 
-const CourseDetailsPage = () => {
+const CourseDeets = () => {
   // const router = useRouter();
   const searchParams = useSearchParams();
   const courseId = searchParams.get("id");
@@ -60,11 +60,11 @@ const CourseDetailsPage = () => {
       <p className="text-gray-100 mb-2">
         Pre-requisites: {course.prerequisites}{" "}
       </p>{" "}
-      <a className="underline text-indigo-400" href="/">
+      <a className="underline text-indigo-400" href="/protected/course-list">
         Go back
       </a>
     </div>
   );
 };
 
-export default CourseDetailsPage;
+export default CourseDeets;
